@@ -103,7 +103,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   onTap: (){
                     RegistrationModel model = RegistrationModel(password: _passwordContoller.text, username: _usernameContoller.text, email: _emailContoller.text);
                     String data = RegistrationModelToJson(model);
-                    // context.read<AuthNotifier>().registrationFunct(context,data);
+                    context.read<AuthNotifier>().registrationFunct(context,data);
                   },
                   text: "S I G N U P",
                   btnWidth: ScreenUtil().screenWidth,

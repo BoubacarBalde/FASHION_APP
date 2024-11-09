@@ -17,13 +17,22 @@ class AuthNotifier with ChangeNotifier{
 
   bool get isLoading => _isLoaing;
 
-  void setIsLoading(){
-    _isLoaing = !_isLoaing;
+  void setIsLoading(bool v){
+    _isLoaing = v;
+    notifyListeners();
+  }
+
+  bool _isRLoaing = false;
+
+  bool get isRLoading => _isRLoaing;
+
+  void setRLoading(){
+    _isRLoaing = !_isRLoaing;
     notifyListeners();
   }
 
   void LoginFuc(BuildContext ctx, String data) async {
-    setIsLoading();
+    setIsLoading(true);
 
     try{
       var url = Uri.parse('${Environment.appBaseUrl}/auth/token/login/');
@@ -36,17 +45,17 @@ class AuthNotifier with ChangeNotifier{
         String accesToken = AccesTokenModelFromJson(response.body).authToken;
         Storage().setString('accesToken', accesToken);
         getUser(ctx, accesToken);
-        setIsLoading();
+        setIsLoading(false);
       }
 
     }catch(e){
-     setIsLoading();
+     setIsLoading(false);
      showErrorPopup(ctx, AppText.kErrorLogin,null, null);
     }
   }
 
   void registrationFunct(BuildContext ctx, String data) async{
-    setIsLoading();
+    setRLoading();
 
     try{
       var url = Uri.parse('${Environment.appBaseUrl}/auth/users/');
@@ -56,13 +65,14 @@ class AuthNotifier with ChangeNotifier{
       },body: data);
 
       if(response.statusCode == 201){
-        setIsLoading();
+        setRLoading();
+        ctx.pop();
       }else if(response.statusCode == 400){
         var data = jsonDecode(response.body);
         showErrorPopup(ctx, data['password'][0],null, null);
       }
     }catch(e){
-      setIsLoading();
+      setRLoading();
       showErrorPopup(ctx, AppText.kErrorLogin,null, null);
     }
   }
@@ -85,7 +95,7 @@ class AuthNotifier with ChangeNotifier{
       }
 
     }catch(e){
-      setIsLoading();
+      setIsLoading(false);
       showErrorPopup(ctx, AppText.kErrorLogin,null, null);
     }
   }
