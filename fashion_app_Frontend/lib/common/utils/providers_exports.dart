@@ -1,0 +1,16 @@
+// export 'package:fashion/src/auth/controllers/auth_notifier.dart';
+// export 'package:fashion/src/auth/controllers/password_notifier.dart';
+// export 'package:fashion/src/cart/controllers/cart_notifier.dart';
+// export 'package:fashion/src/categories/controllers/category_notifier.dart';
+// export 'package:fashion/src/address/controllers/address_notifier.dart';
+// export 'package:fashion/src/entrypoint/controllers/tab_index_notifier.dart';
+// export 'package:fashion/src/home/controllers/home_tabs_notifier.dart';
+// export 'package:fashion/src/onboarding/controllers/onboarding_notifier.dart';
+// export 'package:fashion/src/product/controllers/colors_sizes_notifier.dart';
+// export 'package:fashion/src/product/controllers/extended_text_notifier.dart';
+// export 'package:fashion/src/product/controllers/product_notifier.dart';
+// export 'package:fashion/src/review/controllers/rating_notifier.dart';
+// export 'package:fashion/src/search/controllers/search_notifier.dart';
+// export 'package:fashion/src/splashscreen/splash_screen.dart';
+// export 'package:fashion/src/wishlist/controller/wishlist_tabs_provider.dart';
+// export 'package:fashion/src/notifications/controllers/notification_notifier.dart';
